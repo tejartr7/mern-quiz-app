@@ -12,7 +12,7 @@ export default function Profile() {
             try {
                 enqueueSnackbar('fetching user details', { variant: 'info' });
                 console.log(token);
-                const response = await axios.get(`http://localhost:8000/user/${token}`); // Replace with your backend API endpoint
+                const response = await axios.get(`https://quiz-backend-m2w3.onrender.com/user/${token}`); // Replace with your backend API endpoint
                 setUser(response.data);
               //  console.log(response.data);
             } catch (error) {
