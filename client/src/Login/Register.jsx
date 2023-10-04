@@ -18,7 +18,7 @@ export default function Register() {
         const userData = { username, email, password };
 
         try {
-            const response = await axios.post('http://localhost:8000/register', userData);
+            const response = await axios.post('https://quiz-backend-m2w3.onrender.com/register', userData);
             console.log('Response:', response);
 
             if (response.status === 201) {
