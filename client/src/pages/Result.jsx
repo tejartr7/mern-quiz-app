@@ -19,16 +19,15 @@ export default function Result() {
   const { questions: { questions, answers }, result: { result } } = useSelector((state) => state);
   const [score, setScore] = useState(0);
   const { enqueueSnackbar } = useSnackbar();
-  const start = localStorage.getItem('trace');
 
   useEffect(() => {
-    for (var i = start; i < start + 10; i++) {
-      if (result[i - start] != null && parseInt(answers[i]) === parseInt(result[i - start])) {
+    for (var i = 0; i < 30; i++) {
+      if (parseInt(answers[i]) === parseInt(result[i])) {
         setScore(score + 10);
       }
     }
     
-    if (score > 70) {
+    if (score > 200) {
       setWin(true);
     }
 
@@ -88,7 +87,7 @@ export default function Result() {
           </div>
           <div className='flex'>
             <span>Quiz result:</span>
-            <span className='bold'>{score > 30 ? "Pass" : "Fail"}</span>
+            <span className='bold'>{score > 200 ? "Pass" : "Fail"}</span>
           </div>
         </div>
         <div className="start">
