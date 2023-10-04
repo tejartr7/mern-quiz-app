@@ -32,6 +32,14 @@ export default function Result() {
     if (score >70) {
       setWin(true);
     }
+    if(win)
+    {
+      localStorage.setItem('win',1);
+    }
+    else
+    {
+      localStorage.setItem('win',0);
+    }
     const fetchData = async () => {
       try {
         const response = await axios.get('https://quiz-backend-m2w3.onrender.com/results', {
