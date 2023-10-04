@@ -15,7 +15,7 @@ export default function Login() {
         e.preventDefault();
 
         try {
-            const response = await axios.get('http://localhost:8000/login', {
+            const response = await axios.get('https://quiz-backend-m2w3.onrender.com/login', {
                 params: { email, password },
             });
             try {
