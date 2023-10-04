@@ -63,14 +63,14 @@ const Quiz = () => {
             <h2 className='title text-light'>Quiz Application</h2>
             <Question onCheck={onCheck} />
             <div className='temp'>
-                {trace>start ? (
+                {trace>0? (
                     <button className='btn prev' onClick={onPrev}>
                         Prev
                     </button>
                 ) : (
                     <div></div>
                 )}
-                {trace-start<29 ? (
+                {trace<29 ? (
                     <button className='btn next' onClick={onNext}>
                         Next
                     </button>
