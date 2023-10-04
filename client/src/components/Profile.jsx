@@ -6,6 +6,7 @@ export default function Profile() {
     const token = localStorage.getItem('token');
     const [user, setUser] = useState(null);
     const {enqueueSnackbar}= useSnackbar();
+    const win=localStorage.getItem('win');
     useEffect(() => {
         // Define a function to fetch user details
         const fetchUserDetails = async () => {
@@ -34,7 +35,7 @@ export default function Profile() {
                     </div>
                     <div className='flex'>
                         <span>totalGames:</span>
-                        <span className='bold'>{user.won + user.lost}</span>
+                        <span className='bold'>{user.won + user.lost+1}</span>
                     </div>
                     <div className='flex'>
                         <span>Games won :</span>
