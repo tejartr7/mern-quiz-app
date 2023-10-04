@@ -15,9 +15,7 @@ const Quiz = () => {
     const [option, setOption] = useState(null);
     const { queue, trace } = useSelector((state) => state.questions);
     const state = useSelector((state) => state);
-    const start = localStorage.getItem('trace');
     const result = useSelector((state) => state.result.result);
-    console.log("start value is"+start+" "+trace);
     useEffect(() => {
         // Add an event listener for beforeunload
         window.addEventListener('beforeunload', handleBeforeUnload);
@@ -72,7 +70,7 @@ const Quiz = () => {
                 ) : (
                     <div></div>
                 )}
-                {trace-start<9 ? (
+                {trace-start<29 ? (
                     <button className='btn next' onClick={onNext}>
                         Next
                     </button>
