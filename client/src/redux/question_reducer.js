@@ -1,14 +1,11 @@
 
 import { createSlice } from '@reduxjs/toolkit'
-const val = Math.floor(Math.random() * 20);
-localStorage.setItem('trace', val);
-console.log("trace value is " + localStorage.getItem('trace'));
 export const question_reducer = createSlice({
     name: 'questions',
     initialState: {
         queue: [],
         answers: [],
-        trace: val,
+        trace: 0,
     },
     reducers: {
         startExamAction: (state, action) => {
@@ -35,7 +32,7 @@ export const question_reducer = createSlice({
             return {
                 queue: [],
                 answers: [],
-                trace: val,
+                trace: 0,
             }
         }
     }
