@@ -34,7 +34,7 @@ export default function Result() {
     }
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/results', {
+        const response = await axios.get('https://quiz-backend-m2w3.onrender.com/results', {
           params: { token, win }, // You should define email and password here
         });
 
