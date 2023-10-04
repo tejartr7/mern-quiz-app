@@ -1,0 +1,32 @@
+/* Header styles */
+.header {
+    background-color: #333; /* Change to your desired background color */
+    color: #fff; /* Text color for the header */
+    padding: 1em 0; /* Adjust the padding as needed */
+}
+
+.header .logo {
+    font-size: 2em; /* Adjust the font size for your logo */
+    font-weight: bold;
+    text-decoration: none; /* Remove underlines from links if it's a logo */
+    color: #fff; /* Text color for the logo */
+}
+
+.header .nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header .nav li {
+    display: inline;
+    margin-right: 20px; /* Adjust the spacing between menu items */
+}
+
+.header .nav a {
+    text-decoration: none;
+    color: #fff; /* Text color for menu items */
+    font-size: 1.2em; /* Adjust the font size for menu items */
+}
+
+/* You can add more styles for other header components as needed */
