@@ -40,11 +40,11 @@ export default function Profile() {
                     </div>
                     <div className='flex'>
                         <span>Games won :</span>
-                        <span className='bold'>{user.won+win}</span>
+                        <span className='bold'>{parseInt(user.won+win)}</span>
                     </div>
                     <div className='flex'>
                         <span>Games lost :</span>
-                        <span className='bold'>{user.lost+lost}</span>
+                        <span className='bold'>{parseInt(user.lost+lost)}</span>
                     </div>
                 </div>
             )}
