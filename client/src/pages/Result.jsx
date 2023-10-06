@@ -26,7 +26,7 @@ export default function Result() {
 
     // Use a forEach loop or map to iterate through the questions and update the score
     let newScore = 0;
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 30; i++) {
       if (parseInt(result[i]) === parseInt(answers[i])) {
         newScore += 10;
       }
