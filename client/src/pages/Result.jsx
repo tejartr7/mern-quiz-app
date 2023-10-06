@@ -19,30 +19,33 @@ export default function Result() {
   const { questions: { questions, answers }, result: { result } } = useSelector((state) => state);
   const [score, setScore] = useState(0);
   const { enqueueSnackbar } = useSnackbar();
+  const start = localStorage.getItem('trace');
 
   useEffect(() => {
-    for (var i = 0; i < 30; i++) {
-      if (parseInt(answers[i]) === parseInt(result[i])) {
-        setScore(score + 10);
+    console.log("start value is " + start);
+
+    // Use a forEach loop or map to iterate through the questions and update the score
+    let newScore = 0;
+    for (var i = 0; i < 10; i++) {
+      if (parseInt(result[i]) === parseInt(answers[i])) {
+        newScore += 10;
       }
     }
-    
-    if (score > 200) {
-      setWin(true);
-    }
+    setScore(newScore); // Update the score once after the loop
 
-    if (win) {
-      localStorage.setItem('win', 1);
-    } else {
-      localStorage.setItem('win', 0);
+    console.log(answers);
+    console.log(result);
+    if (newScore > 200) { // Use newScore here instead of score
+      setWin(true);
     }
 
     const fetchData = async () => {
       try {
         const response = await axios.get('https://quiz-backend-m2w3.onrender.com/results', {
-          params: { token, win },
+          params: { token, win }, // You should define email and password here
         });
 
+        // Handle your response data as needed
         if (response.status === 200) {
           console.log(response.data);
         } else {
@@ -60,7 +63,8 @@ export default function Result() {
     enqueueSnackbar('Resetting', { variant: 'info' });
     dispatch(resetResultAction());
     dispatch(resetAllAction());
-    window.location.href = '/'; // Redirect to the home page
+    window.location.reload();
+    window.location.href = '/';
   }
 
   return (
