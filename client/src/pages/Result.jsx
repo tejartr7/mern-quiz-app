@@ -35,6 +35,7 @@ export default function Result() {
 
     if (newScore > 200) { // Use newScore here instead of score
       setWin(true);
+      localStorage.setItem('win',1);
     }
 
     const fetchData = async () => {
