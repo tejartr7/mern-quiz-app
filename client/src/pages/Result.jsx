@@ -22,7 +22,7 @@ export default function Result() {
   const start = localStorage.getItem('trace');
 
   useEffect(() => {
-    console.log("start value is " + start);
+    
 
     // Use a forEach loop or map to iterate through the questions and update the score
     let newScore = 0;
@@ -33,8 +33,6 @@ export default function Result() {
     }
     setScore(newScore); // Update the score once after the loop
 
-    console.log(answers);
-    console.log(result);
     if (newScore > 200) { // Use newScore here instead of score
       setWin(true);
     }
