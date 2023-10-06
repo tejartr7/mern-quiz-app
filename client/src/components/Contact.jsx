@@ -13,16 +13,6 @@ const Contact = () => {
           </a>
         </div>
         <div className="col-md-3 mb-3">
-          <a href="https://www.linkedin.com/in/raghu-teja-8b6721236/" className="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-        </div>
-        <div className="col-md-3 mb-3">
-          <a href="https://github.com/tejartr7" className="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-        </div>
-        <div className="col-md-3 mb-3">
           <a href="https://twitter.com/raghu_rtr" className="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">
             Twitter
           </a>
