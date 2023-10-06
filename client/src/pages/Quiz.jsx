@@ -53,8 +53,6 @@ const Quiz = () => {
     }
 
     const onCheck = (i) => {
-        console.log("option "+i);
-        console.log(result);
         setOption(i);
     }
 
