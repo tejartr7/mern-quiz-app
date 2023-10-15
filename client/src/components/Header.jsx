@@ -37,7 +37,7 @@ const Header = () => {
     };
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+        <Navbar collapseOnSelect expand="lg" bg="blue" variant="light">
             <Container className="fw-bold">
                 <img className="logo" src={logo} alt="Logo" />
                 {small ? (
