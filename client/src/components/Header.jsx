@@ -38,17 +38,8 @@ const Header = () => {
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="primary" variant="light">
-            <Container className="fw-bold">
+            <Container className="fw-bold d-flex justify-content-between align-items-center">
                 <img className="logo" src={logo} alt="Logo" />
-                {small ? (
-                    <Button
-                        variant="dark"
-                        onClick={handleSignout}
-                        className="text-white"
-                    >
-                        Logout
-                    </Button>
-                ) : null}
                 <Navbar.Toggle
                     aria-controls="responsive-navbar-nav"
                     onClick={() => setExpanded(!expanded)}
