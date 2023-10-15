@@ -1,10 +1,34 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Import Bootstrap JavaScript
+import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSnackbar } from 'notistack';
-import { logo } from '../images/assets';
+import { useLocation } from 'react-router-dom';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import logo from '../images/assets/logo.png'; // Import the logo image correctly
+import { NavLink } from 'react-router-dom'; // Import NavLink for routing
+
 const Header = () => {
-    const { enqueueSnackbar } = useSnackbar(); // Move this line outside of useEffect
+    const { enqueueSnackbar } = useSnackbar();
+    const [expanded, setExpanded] = useState(false);
+    const [small, setSmall] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        const handleResize = () => {
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 1000) {
+                setSmall(true);
+            } else {
+                setSmall(false);
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const handleSignout = () => {
         localStorage.removeItem('token');
@@ -13,22 +37,46 @@ const Header = () => {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-            <img className="logo text-white" src={logo}/>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse text-white" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                    <a className="navbar-brand nav-link active text-white" href="/">Home</a>
-                    <a className="navbar-brand nav-link text-white" href="/about">About</a>
-                    <a className="navbar-brand nav-link text-white" href="/contact">Contact us</a>
-                </div>
-            </div>
-            <div className="navbar-nav mr-10">
-                <button className="btn btn-dark" onClick={handleSignout}>Signout</button>
-            </div>
-        </nav>
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+            <Container className="fw-bold">
+                <img className="logo" src={logo} alt="Logo" />
+                {small ? (
+                    <Button
+                        variant="dark"
+                        onClick={handleSignout}
+                        className="text-white"
+                    >
+                        Logout
+                    </Button>
+                ) : null}
+                <Navbar.Toggle
+                    aria-controls="responsive-navbar-nav"
+                    onClick={() => setExpanded(!expanded)}
+                />
+                <Navbar.Collapse id="responsive-navbar-nav" in={expanded}>
+                    <Nav className="ml-auto">
+                        <Nav.Link as={NavLink} to="/" exact>
+                            Home
+                        </Nav.Link>
+                        <Nav.Link as={NavLink} to="/about">
+                            About
+                        </Nav.Link>
+                        <Nav.Link as={NavLink} to="/contact">
+                            Contact us!
+                        </Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+                {!small ? (
+                    <Button
+                        variant="dark"
+                        onClick={handleSignout}
+                        className="text-white"
+                    >
+                        Logout
+                    </Button>
+                ) : null}
+            </Container>
+        </Navbar>
     );
 }
 
