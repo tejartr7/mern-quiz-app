@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSnackbar } from 'notistack';
 import { useLocation } from 'react-router-dom';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
-import logo from '../images/assets/logo.png'; // Import the logo image correctly
+import { logo } from '../images/assets'; // Import the logo image correctly
 import { NavLink } from 'react-router-dom'; // Import NavLink for routing
 
 const Header = () => {
