@@ -8,7 +8,7 @@ const Contact = () => {
       <p className="contact-text text-light">Feel free to connect with us:</p>
       <div className="row justify-content-center">
         <div className="col-md-3 mb-3">
-          <a href="mailto:sai707nenupavan@gmail.com" className="btn btn-primary btn-block">
+          <a href="mailto:codworldrtr7@gmail.com" className="btn btn-primary btn-block">
             Email
           </a>
         </div>
